@@ -27,7 +27,8 @@ export const fetchCities = () => {
     try {
       const response = await axios.get(`${apiUrl}/city`);
 
-      console.log("Fetch cities response:", response);
+      console.log("Fetch cities response:", response.data.cities);
+      dispatch(fetchCitiesSuccess(response.data.cities));
       dispatch(appDoneLoading());
     } catch (error) {
       console.log("Error:", error);
@@ -55,7 +56,11 @@ export const createCity = (name, imgUrl, vidUrl, songUrl) => {
           },
         },
       );
-      console.log("Congrats! You added a new city to vibe to!", response);
+      console.log(
+        "Congrats! You added a new city to vibe to!",
+        response.data.newCity,
+      );
+      dispatch(createCitySucces(response.data.newCity));
       dispatch(appDoneLoading());
     } catch (error) {
       console.log("Error:", error);
