@@ -1,59 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
+import { selectToken } from "../store/user/selectors";
+import { fetchCities } from "../store/cities/actions";
+import { selectCities } from "../store/cities/selectors";
 import CityMiniature from "../components/CityMiniature";
-
-const temporaryLoginChat = false;
+import { useSelector } from "react-redux";
 
 // const cityVibes = fetchCities
 
-const dummyArray = [
-	{
-		name: "New York",
-		url: "https://www.qantas.com/content/dam/travelinsider/images/explore/north-america/usa/new-york/apps-to-download-before-you-go-to-new-york/GettyImages-1035114520.jpg",
-	},
-	{
-		name: "Santiago de Compostela",
-		url: "http://www.pietre-vive.org/wp-content/uploads/2017/11/IMG_4628.jpg",
-	},
-	{
-		name: "Rome",
-		url: "https://www.worldtopupdates.com/wp-content/uploads/2017/05/5104226627001_5232386545001_5215063851001-vs.jpg",
-	},
-];
-
 export default function HomePage() {
-	return (
-		<div>
-			<div>
-				<h1>Vibecheck</h1>
-			</div>
+  const userToken = useSelector(selectToken);
+  const data = useSelector(selectCities);
+  const dispatch = useDispatch();
 
-			<div>
-				{dummyArray.map((city, index) => (
-					<CityMiniature
-						key={index}
-						name={city.name}
-						url={city.url}
-					/>
-				))}
-			</div>
-			<div>
-				{temporaryLoginChat ? (
-					<Link to="/PostCity">
-						<Button variant="light">
-							<h2> Post a new City Vibe!</h2>
-						</Button>
-					</Link>
-				) : (
-					<Link to="/login">
-						<Button variant="light">
-							<h2>Post a new City Vibe</h2>
-						</Button>
-					</Link>
-				)}
-			</div>
-		</div>
-	);
+  useEffect(() => {
+    dispatch(fetchCities());
+  }, [dispatch]);
+
+  const cities = data.sort((a, b) => {
+    return b.id - a.id;
+  });
+
+  return (
+    <div>
+      <div>
+        <h1>Vibecheck</h1>
+      </div>
+
+      <div>
+        {cities.map((city) => (
+          <CityMiniature key={city.id} name={city.name} url={city.imgUrl} />
+        ))}
+      </div>
+      <div>
+        {userToken && (
+          <Link to="/PostCity">
+            <Button variant="light">
+              <h2> Post a new City Vibe!</h2>
+            </Button>
+          </Link>
+        )}
+      </div>
+    </div>
+  );
 }
