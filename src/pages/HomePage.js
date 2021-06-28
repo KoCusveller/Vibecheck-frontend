@@ -1,6 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 import CityMiniature from "../components/CityMiniature";
+
+const temporaryLoginChat = false;
+
+// const cityVibes = fetchCities
 
 const dummyArray = [
 	{
@@ -20,7 +26,9 @@ const dummyArray = [
 export default function HomePage() {
 	return (
 		<div>
-			<div>Homepage</div>
+			<div>
+				<h1>Vibecheck</h1>
+			</div>
 
 			<div>
 				{dummyArray.map((city, index) => (
@@ -30,6 +38,21 @@ export default function HomePage() {
 						url={city.url}
 					/>
 				))}
+			</div>
+			<div>
+				{temporaryLoginChat ? (
+					<Link to="/PostCity">
+						<Button variant="light">
+							<h2> Post a new City Vibe!</h2>
+						</Button>
+					</Link>
+				) : (
+					<Link to="/login">
+						<Button variant="light">
+							<h2>Post a new City Vibe</h2>
+						</Button>
+					</Link>
+				)}
 			</div>
 		</div>
 	);
