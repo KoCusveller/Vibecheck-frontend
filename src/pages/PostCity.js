@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import { Col } from "react-bootstrap";
+
+import Image from "react-bootstrap/Image";
+
+
 import { createCity } from "../store/cities/actions";
 
 import { Form, Col, Button, Container } from "react-bootstrap";
@@ -24,6 +29,7 @@ export default function PostCity() {
 		set_imgUrl("");
 		set_vidUrl("");
 		set_songUrl("");
+
 
 		history.push("/");
 	}
@@ -62,6 +68,11 @@ export default function PostCity() {
 							placeholder="Please enter Image Url"
 							required
 						/>
+                {imgUrl ? (
+              <Col className="mt-4" md={{ span: 8, offset: 2 }}>
+                <Image src={imgUrl} alt="preview" thumbnail />
+              </Col>
+            ) : null}
 					</Form.Group>
 
 					<Form.Group controlId="formBasicVidUrl">

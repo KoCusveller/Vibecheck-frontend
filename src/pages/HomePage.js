@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import { selectToken } from "../store/user/selectors";
-import { fetchCities } from "../store/cities/actions";
+import { fetchCities, fetchMoreCities } from "../store/cities/actions";
 import { selectCities } from "../store/cities/selectors";
 import CityMiniature from "../components/CityMiniature";
 import { useSelector } from "react-redux";
@@ -13,33 +13,39 @@ import { useSelector } from "react-redux";
 
 export default function HomePage() {
   const userToken = useSelector(selectToken);
-  const data = useSelector(selectCities);
+  const cities = useSelector(selectCities);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCities());
+    if (!cities.length) {
+      dispatch(fetchCities());
+    }
   }, [dispatch]);
-
-  const cities = data.sort((a, b) => {
-    return b.id - a.id;
-  });
 
   return (
     <div>
       <div>
-        <h1>Vibecheck</h1>
-      </div>
-
-      <div>
         {cities.map((city) => (
-          <CityMiniature key={city.id} name={city.name} url={city.imgUrl} />
+          <CityMiniature
+            key={city.id}
+            id={city.id}
+            name={city.name}
+            url={city.imgUrl}
+          />
         ))}
       </div>
+      <button onClick={() => dispatch(fetchMoreCities())}>More</button>
       <div>
-        {userToken && (
+        {userToken ? (
           <Link to="/PostCity">
             <Button variant="light">
               <h2> Post a new City Vibe!</h2>
+            </Button>
+          </Link>
+        ) : (
+          <Link to="/login">
+            <Button variant="light">
+              <h2>Post a new City Vibe!</h2>
             </Button>
           </Link>
         )}

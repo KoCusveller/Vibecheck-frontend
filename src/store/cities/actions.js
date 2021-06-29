@@ -25,10 +25,43 @@ export const fetchCities = () => {
     dispatch(appLoading());
 
     try {
-      const response = await axios.get(`${apiUrl}/city`);
+      const response = await axios.get(`${apiUrl}/city?offset=0&limit=9`);
 
-      console.log("Fetch cities response:", response.data.cities);
-      dispatch(fetchCitiesSuccess(response.data.cities));
+      const cities = response.data.cities;
+
+      // console.log("offset:", offset);
+
+      // console.log("cities:", cities);
+
+      console.log("Fetch cities response:", response);
+      dispatch(fetchCitiesSuccess(cities));
+      dispatch(appDoneLoading());
+    } catch (error) {
+      console.log("Error:", error);
+      dispatch(appDoneLoading());
+    }
+  };
+};
+
+export const fetchMoreCities = () => {
+  return async (dispatch, getState) => {
+    dispatch(appLoading());
+
+    try {
+      const offset = getState().cities.length;
+
+      const response = await axios.get(
+        `${apiUrl}/city?offset=${offset}&limit=9`,
+      );
+
+      const cities = response.data.cities;
+
+      console.log("offset:", offset);
+
+      // console.log("cities:", cities);
+
+      // console.log("Fetch cities response:", response);
+      dispatch(fetchCitiesSuccess(cities));
       dispatch(appDoneLoading());
     } catch (error) {
       console.log("Error:", error);
