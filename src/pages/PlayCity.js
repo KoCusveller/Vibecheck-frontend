@@ -1,51 +1,64 @@
-import React from "react";
-import { useState } from "react";
-import YoutubePlayer from "react-player/youtube";
-import SoundClouldPlayer from "react-player/soundcloud";
+import React, { useState } from "react";
+import Player from "react-player/youtube";
+import "../App.css";
 
-/**PROBLEMS *
- * 1- Make video responsive (size)
- * 2- Play/Pause song and video wen click only on video
- * 3- Hide title and other anoying things.
- * */
-export default function PlayCity() {
-  const [playing, setplaying] = useState(false);
-  const [volume, setvolume] = useState(1);
+// All that is left to do is change it into the fetched items from the redux store
+
+function PlayCity() {
+  const [playing, setPlaying] = useState(true);
+  const [volume, setVolume] = useState(0);
+  const [mutedClick, setMutedClick] = useState(false);
+
   return (
-    <div>
-      Play City{" "}
-      {
-        // Render a YouTube video player
-      }
-      <div style={{ minHeight: "100%", minWidth: "100%" }}>
-        <YoutubePlayer
-          url="https://www.youtube.com/watch?v=gxR_ktz18Q0"
-          playing={playing}
-          muted={true}
-          config={{
-            youtube: {
-              playerVars: { rel: 0, modestbranding: 1 },
-            },
-          }}
-          height="1000px"
-          width="100%"
-        />{" "}
-      </div>
-      <SoundClouldPlayer
-        style={{ display: "none" }}
-        url="https://soundcloud.com/lofi_girl/4-am-studysession"
-        playing={playing}
-        volume={volume}
+    <div className="player-wrapper">
+      <Player
+        className="react-player"
+        url="https://www.youtube.com/watch?v=cbTV35mLI5A"
+        muted={true}
+        playing={playing ? true : false}
+        config={{
+          youtube: {
+            playerVars: { loop: 1 },
+          },
+        }}
+        controls={false}
+        width="100%"
+        height="80%"
+        // loop={true}
+        // onReady={() => setPlaying(true)}
+        // onPlay={() => setPlaying(!playing)}
+        // onPause={() => setPlaying(!playing)}
       />
-      <button onClick={() => setplaying(!playing)}>
-        {playing ? "Pause" : "Play"}
+      <Player
+        url="https://www.youtube.com/watch?v=-5KAN9_CzSA"
+        playing={playing ? true : false}
+        style={{ display: "none" }}
+        volume={volume}
+        muted={false}
+        config={{
+          youtube: {
+            playerVars: { mute: mutedClick ? 1 : 0 },
+          },
+        }}
+      />
+      <button
+        onClick={(e) => {
+          setPlaying(!playing);
+          setMutedClick(!mutedClick);
+        }}
+      >
+        {playing ? "Play" : "Pause"}
       </button>
       <input
         type="range"
         min={0}
         max={10}
-        onChange={(event) => setvolume(event.target.value / 10)}
-      ></input>
+        onChange={(e) => {
+          setVolume(parseInt(e.target.value / 10));
+        }}
+      />
     </div>
   );
 }
+
+export default PlayCity;
