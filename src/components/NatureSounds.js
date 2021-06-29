@@ -34,7 +34,7 @@ export default function NatureSounds() {
   return (
     <div>
       <ReactPlayer
-        style={{ display: "flex" }}
+        style={{ display: "none" }}
         url={natureSound.url}
         volume={volume}
         playing={playing}

@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 // All that is left to do is change it into the fetched items from the redux store
 
 function PlayCity() {
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
   const [volume, setVolume] = useState(1);
   const [mutedClick, setMutedClick] = useState(false);
 
@@ -37,9 +37,9 @@ function PlayCity() {
         width="100%"
         height="80%"
         // loop={true}
-        // onReady={() => setPlaying(true)}
-        // onPlay={() => setPlaying(!playing)}
-        // onPause={() => setPlaying(!playing)}
+        onReady={() => setPlaying(true)}
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
       />
       <Player
         //audio
@@ -61,14 +61,14 @@ function PlayCity() {
           setMutedClick(!mutedClick);
         }}
       >
-        {playing ? "Play" : "Pause"}
+        {playing ? "Pause" : "Play"}
       </button>
       <input
         type="range"
         min={0}
         max={10}
         onChange={(e) => {
-          setVolume(parseInt(e.target.value / 10));
+          setVolume(parseFloat(e.target.value / 10));
         }}
       />
 
