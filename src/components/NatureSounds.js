@@ -34,7 +34,7 @@ export default function NatureSounds() {
   return (
     <div>
       <ReactPlayer
-        style={{ display: "none" }}
+        style={{ display: "flex" }}
         url={natureSound.url}
         volume={volume}
         playing={playing}
@@ -49,9 +49,10 @@ export default function NatureSounds() {
         <input
           type="range"
           min={0}
-          max={100}
+          max={10}
           onChange={(e) => {
-            setVolume(parseInt(e.target.value));
+            console.log(volume);
+            return setVolume(parseFloat(e.target.value / 10));
           }}
         />
       </div>
