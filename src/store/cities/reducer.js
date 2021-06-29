@@ -5,7 +5,7 @@ const initialState = [];
 export default function cityReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_CITIES_SUCCESS:
-      return [...action.payload];
+      return [...state, ...action.payload];
 
     case CREATE_CITY_SUCCES:
       return [action.payload, ...state];
