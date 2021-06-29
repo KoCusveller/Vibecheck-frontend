@@ -27,7 +27,7 @@ export const fetchCities = () => {
     try {
       const response = await axios.get(`${apiUrl}/city`);
 
-      console.log("Fetch cities response:", response.data.cities);
+      console.log("Fetch cities response:", response);
       dispatch(fetchCitiesSuccess(response.data.cities));
       dispatch(appDoneLoading());
     } catch (error) {

@@ -13,16 +13,12 @@ import { useSelector } from "react-redux";
 
 export default function HomePage() {
   const userToken = useSelector(selectToken);
-  const data = useSelector(selectCities);
+  const cities = useSelector(selectCities);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCities());
   }, [dispatch]);
-
-  const cities = data.sort((a, b) => {
-    return b.id - a.id;
-  });
 
   return (
     <div>
