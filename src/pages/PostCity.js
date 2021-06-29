@@ -3,9 +3,9 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import { useHistory } from "react-router";
+import Image from "react-bootstrap/Image";
 
 import { createCity } from "../store/cities/actions";
 
@@ -55,7 +55,11 @@ export default function SignUp() {
               placeholder="Enter Url"
               required
             />
-            <Form.Text className="text-muted"></Form.Text>
+            {imgUrl ? (
+              <Col className="mt-4" md={{ span: 8, offset: 2 }}>
+                <Image src={imgUrl} alt="preview" thumbnail />
+              </Col>
+            ) : null}
           </Form.Group>
 
           <Form.Group controlId="formBasicVidUrl">
