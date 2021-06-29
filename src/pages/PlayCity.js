@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Player from "react-player/youtube";
+import NatureSounds from "../components/NatureSounds";
 import "../App.css";
 
 // All that is left to do is change it into the fetched items from the redux store
@@ -41,6 +42,7 @@ function PlayCity() {
           },
         }}
       />
+
       <button
         onClick={(e) => {
           setPlaying(!playing);
@@ -57,6 +59,8 @@ function PlayCity() {
           setVolume(parseInt(e.target.value / 10));
         }}
       />
+
+      <NatureSounds />
     </div>
   );
 }
