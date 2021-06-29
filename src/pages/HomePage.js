@@ -30,7 +30,12 @@ export default function HomePage() {
 
       <div>
         {cities.map((city) => (
-          <CityMiniature key={city.id} name={city.name} url={city.imgUrl} />
+          <CityMiniature
+            key={city.id}
+            id={city.id}
+            name={city.name}
+            url={city.imgUrl}
+          />
         ))}
       </div>
       <div>

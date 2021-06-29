@@ -11,14 +11,15 @@ export const fetchCityDetailSuccess = (cityDetail) => {
   };
 };
 
-export const fetchCityDetail = (cityId) => {
+export const fetchCityDetail = (id) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
 
     try {
-      const response = await axios.get(`${apiUrl}/city/${cityId}`);
+      const response = await axios.get(`${apiUrl}/city/${id}`);
 
       console.log("cityDetail response:", response);
+      dispatch(fetchCityDetailSuccess(response.data.cityDetails));
       dispatch(appDoneLoading());
     } catch (error) {
       console.log("Error:", error);

@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Player from "react-player/youtube";
 import "../App.css";
+import { useParams } from "react-router-dom";
+import { fetchCityDetail } from "../store/cityDetail/actions";
+import { useDispatch } from "react-redux";
 
 // All that is left to do is change it into the fetched items from the redux store
 
@@ -8,6 +11,13 @@ function PlayCity() {
   const [playing, setPlaying] = useState(true);
   const [volume, setVolume] = useState(0);
   const [mutedClick, setMutedClick] = useState(false);
+
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCityDetail(id));
+  }, [dispatch]);
 
   return (
     <div className="player-wrapper">
