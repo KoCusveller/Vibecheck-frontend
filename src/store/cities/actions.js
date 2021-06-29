@@ -25,10 +25,20 @@ export const fetchCities = () => {
     dispatch(appLoading());
 
     try {
-      const response = await axios.get(`${apiUrl}/city`);
+      const offset = getState().cities.length;
 
-      console.log("Fetch cities response:", response);
-      dispatch(fetchCitiesSuccess(response.data.cities));
+      const response = await axios.get(
+        `${apiUrl}/city?offset=${offset}&limit=9`,
+      );
+
+      const cities = response.data.cities;
+
+      // console.log("offset:", offset);
+
+      // console.log("cities:", cities);
+
+      // console.log("Fetch cities response:", response);
+      dispatch(fetchCitiesSuccess(cities));
       dispatch(appDoneLoading());
     } catch (error) {
       console.log("Error:", error);

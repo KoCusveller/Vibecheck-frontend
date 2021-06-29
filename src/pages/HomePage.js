@@ -40,6 +40,7 @@ export default function HomePage() {
           </Link>
         )}
       </div>
+      <button onClick={() => dispatch(fetchCities())}>More</button>
     </div>
   );
 }
