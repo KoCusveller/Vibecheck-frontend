@@ -25,24 +25,31 @@ export default function HomePage() {
   return (
     <div>
       <div>
-        <h1>Vibecheck</h1>
-      </div>
-
-      <div>
         {cities.map((city) => (
-          <CityMiniature key={city.id} name={city.name} url={city.imgUrl} />
+          <CityMiniature
+            key={city.id}
+            id={city.id}
+            name={city.name}
+            url={city.imgUrl}
+          />
         ))}
       </div>
+      <button onClick={() => dispatch(fetchMoreCities())}>More</button>
       <div>
-        {userToken && (
+        {userToken ? (
           <Link to="/PostCity">
             <Button variant="light">
               <h2> Post a new City Vibe!</h2>
             </Button>
           </Link>
+        ) : (
+          <Link to="/login">
+            <Button variant="light">
+              <h2>Post a new City Vibe!</h2>
+            </Button>
+          </Link>
         )}
       </div>
-      <button onClick={() => dispatch(fetchMoreCities())}>More</button>
     </div>
   );
 }
