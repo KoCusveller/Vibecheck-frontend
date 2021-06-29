@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 import { selectToken } from "../store/user/selectors";
-import { fetchCities } from "../store/cities/actions";
+import { fetchCities, fetchMoreCities } from "../store/cities/actions";
 import { selectCities } from "../store/cities/selectors";
 import CityMiniature from "../components/CityMiniature";
 import { useSelector } from "react-redux";
@@ -17,7 +17,9 @@ export default function HomePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCities());
+    if (!cities.length) {
+      dispatch(fetchCities());
+    }
   }, [dispatch]);
 
   return (
@@ -40,7 +42,7 @@ export default function HomePage() {
           </Link>
         )}
       </div>
-      <button onClick={() => dispatch(fetchCities())}>More</button>
+      <button onClick={() => dispatch(fetchMoreCities())}>More</button>
     </div>
   );
 }
