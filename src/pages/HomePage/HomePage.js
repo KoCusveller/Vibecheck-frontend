@@ -1,7 +1,7 @@
 // IMPORT REACT LIBRARIES AND COMPONENTS
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import CityMiniature from "../../components/CityMiniature";
+import CityMiniature from "../../components/CityMiniature/CityMiniature";
 
 // IMPORT REDUX
 import { useDispatch, useSelector } from "react-redux";
