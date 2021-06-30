@@ -45,7 +45,7 @@ export default function NatureSounds({ master_playing }) {
   }, [master_playing]);
 
   return (
-    <div style={{ margin: "auto" }}>
+    <div style={{ alignSelf: "flex-end" }}>
       <ReactPlayer
         style={{ display: "none" }}
         url={natureSound.url}
