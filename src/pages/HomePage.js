@@ -49,21 +49,45 @@ export default function HomePage() {
 
 			<button
 				onClick={() => dispatch(fetchMoreCities())}
-				style={{ marginLeft: "auto", marginRight: "auto" }}
+				style={{
+					display: "block",
+					marginLeft: "auto",
+					marginRight: "3vw",
+					border: "none",
+					backgroundColor: "white",
+				}}
 			>
-				More
+				MORE
 			</button>
 
 			<div>
 				{userToken ? (
 					<Link to="/PostCity">
-						<Button variant="light">
+						<Button
+							variant="light"
+							style={{
+								display: "block",
+								marginLeft: "auto",
+								marginRight: "auto",
+								backgroundColor: "white",
+								border: "none",
+							}}
+						>
 							<h2> Post a new City Vibe!</h2>
 						</Button>
 					</Link>
 				) : (
 					<Link to="/login">
-						<Button variant="light">
+						<Button
+							variant="light"
+							style={{
+								display: "block",
+								marginLeft: "auto",
+								marginRight: "auto",
+								backgroundColor: "white",
+								border: "none",
+							}}
+						>
 							<h2>Post a new City Vibe!</h2>
 						</Button>
 					</Link>
