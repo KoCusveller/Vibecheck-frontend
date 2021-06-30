@@ -9,22 +9,22 @@ import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 
 export default function Navigation() {
-	const token = useSelector(selectToken);
+  const token = useSelector(selectToken);
 
-	const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
+  const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
 
-	return (
-		<Navbar bg="light" expand="lg">
-			<Navbar.Brand as={NavLink} to="/">
-				Vibecheck
-			</Navbar.Brand>
-			<Navbar.Toggle aria-controls="basic-navbar-nav" />
-			<Navbar.Collapse id="basic-navbar-nav">
-				<Nav style={{ width: "100%" }} fill>
-					<NavbarItem path="/PostCity" linkText="Post new City" />
-					{loginLogoutControls}
-				</Nav>
-			</Navbar.Collapse>
-		</Navbar>
-	);
+  return (
+    <Navbar bg="primary" expand="lg">
+      <Navbar.Brand as={NavLink} to="/">
+        Vibecheck
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav style={{ width: "100%" }} fill>
+          <NavbarItem path="/" linkText="Home" />
+          {loginLogoutControls}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
 }
