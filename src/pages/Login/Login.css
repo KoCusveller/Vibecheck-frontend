@@ -1,3 +1,8 @@
 .fullHeight {
-	min-height: 100vh;
+  min-height: 100vh;
+}
+
+.signupLinkStyle:hover {
+  color: rgb(201, 194, 206);
+  text-decoration: none;
 }
