@@ -3,6 +3,15 @@ import React from "react";
 import { useState } from "react";
 import ReactPlayer from "react-player";
 
+/**IMPORT IMAGES */
+
+import JUNGLE_IMG from "./img/JUNGLE.png";
+import OCEAN_IMG from "./img/OCEAN.png";
+import RAIN_IMG from "./img/RAIN.png";
+import STORM_IMG from "./img/STORM.png";
+
+import "./NatureSounds.css";
+
 //Object that stores all the Nature Sounds information
 const type = {
   JUNGLE: {
@@ -42,10 +51,21 @@ export default function NatureSounds() {
         loop={true}
       />
       <div className="nature-sound-buttons">
-        <button onClick={() => handleSound(type.JUNGLE)}>JUGLE INCON</button>
-        <button onClick={() => handleSound(type.OCEAN)}>OCEAN INCON</button>
-        <button onClick={() => handleSound(type.RAIN)}>RAIN INCON</button>
-        <button onClick={() => handleSound(type.STORM)}>STORM INCON</button>
+        <button onClick={() => handleSound(type.JUNGLE)}>
+          <img className="nature-sound-icon" src={JUNGLE_IMG}></img>
+        </button>
+
+        <button onClick={() => handleSound(type.OCEAN)}>
+          <img className="nature-sound-icon" src={OCEAN_IMG}></img>
+        </button>
+
+        <button onClick={() => handleSound(type.RAIN)}>
+          <img className="nature-sound-icon" src={RAIN_IMG}></img>
+        </button>
+
+        <button onClick={() => handleSound(type.STORM)}>
+          <img className="nature-sound-icon" src={STORM_IMG}></img>
+        </button>
         <input
           type="range"
           min={0}
