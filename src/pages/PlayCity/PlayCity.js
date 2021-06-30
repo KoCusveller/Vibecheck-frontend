@@ -50,9 +50,6 @@ function PlayCity() {
           },
         }}
         controls={false}
-        width="100%"
-        height="80%"
-        style={{ marginBottom: "10px" }}
         // loop={true}
         onReady={() => setPlaying(true)}
         onPlay={() => setPlaying(true)}
@@ -72,9 +69,9 @@ function PlayCity() {
           },
         }}
       />
-
       <div className="audio-controls">
         <button
+          className="playCity-button-style"
           onClick={(e) => {
             setPlaying(!playing);
             setMutedClick(!mutedClick);

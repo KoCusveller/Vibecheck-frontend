@@ -1,22 +1,37 @@
 .player-wrapper {
-  position: relative;
-  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+  /* position: relative; */
+  /* Player ratio: 100 / (1280 / 720) */
+  /* padding-top: 56.25%; */
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .react-player {
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  left: 0;
+  left: 0; */
+  min-width: 100%;
+  min-height: 20%;
+  z-index: 0;
 }
 
 .audio-controls {
   margin-top: 2px;
-  display: flex;
   margin-left: 5%;
-  flex-wrap: wrap;
+  z-index: 1;
 }
 
 .playCity-icon {
-  height: 25px;
-  width: 25px;
+  max-height: 25px;
+  max-width: 25px;
+}
+
+.playCity-button-style {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.playCity-button-style:focus {
+  outline: none;
 }
