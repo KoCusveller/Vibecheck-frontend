@@ -4,7 +4,10 @@ import { useHistory } from "react-router-dom";
 import { Form, Col, Button, Container, InputGroup } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 
-import { createCity } from "../store/cities/actions";
+import { createCity } from "../../store/cities/actions";
+
+// IMPORT STYLE
+import "./PostCity.css";
 
 export default function PostCity() {
 	const dispatch = useDispatch();
@@ -41,7 +44,7 @@ export default function PostCity() {
 	};
 
 	return (
-		<div>
+		<div className="fullHeight">
 			<Container as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
 				<Form noValidate validated={validated} onSubmit={submitForm}>
 					<h1 className="mt-5 mb-5">Post a new Vibecheck</h1>

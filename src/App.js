@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 
-import PostCity from "./pages/PostCity";
+import PostCity from "./pages/PostCity/PostCity";
 import PlayCity from "./pages/PlayCity/PlayCity";
 import HomePage from "./pages/HomePage/HomePage";
 
