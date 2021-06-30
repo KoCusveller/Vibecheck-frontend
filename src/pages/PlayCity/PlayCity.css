@@ -10,8 +10,10 @@
 }
 
 .audio-controls {
+  margin-top: 2px;
   display: flex;
   margin-left: 5%;
+  flex-wrap: wrap;
 }
 
 .playCity-icon {

@@ -52,6 +52,7 @@ function PlayCity() {
         controls={false}
         width="100%"
         height="80%"
+        style={{ marginBottom: "10px" }}
         // loop={true}
         onReady={() => setPlaying(true)}
         onPlay={() => setPlaying(true)}

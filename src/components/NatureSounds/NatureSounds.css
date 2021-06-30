@@ -3,6 +3,12 @@
   width: 25px;
 }
 
-.nature-sound-buttons {
-  padding-left: 20%;
+.nature-sound-controls {
+  max-width: 100%;
+  display: flex;
+}
+
+.nature-sound-volume {
+  min-width: 168px;
+  max-width: 100%;
 }
