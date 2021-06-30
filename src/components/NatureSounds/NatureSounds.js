@@ -45,7 +45,7 @@ export default function NatureSounds({ master_playing }) {
   }, [master_playing]);
 
   return (
-    <div style={{ alignSelf: "flex-end" }}>
+    <div>
       <ReactPlayer
         style={{ display: "none" }}
         url={natureSound.url}
@@ -55,19 +55,31 @@ export default function NatureSounds({ master_playing }) {
         loop={true}
       />
       <div className="nature-sound-controls">
-        <button onClick={() => handleSound(type.JUNGLE)}>
+        <button
+          className="natureSound-button-style"
+          onClick={() => handleSound(type.JUNGLE)}
+        >
           <img className="nature-sound-icon" src={JUNGLE_IMG}></img>
         </button>
 
-        <button onClick={() => handleSound(type.OCEAN)}>
+        <button
+          className="natureSound-button-style"
+          onClick={() => handleSound(type.OCEAN)}
+        >
           <img className="nature-sound-icon" src={OCEAN_IMG}></img>
         </button>
 
-        <button onClick={() => handleSound(type.RAIN)}>
+        <button
+          className="natureSound-button-style"
+          onClick={() => handleSound(type.RAIN)}
+        >
           <img className="nature-sound-icon" src={RAIN_IMG}></img>
         </button>
 
-        <button onClick={() => handleSound(type.STORM)}>
+        <button
+          className="natureSound-button-style"
+          onClick={() => handleSound(type.STORM)}
+        >
           <img className="nature-sound-icon" src={STORM_IMG}></img>
         </button>
       </div>

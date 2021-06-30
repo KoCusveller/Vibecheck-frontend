@@ -1,6 +1,7 @@
 .nature-sound-icon {
   height: 25px;
   width: 25px;
+  border: none;
 }
 
 .nature-sound-controls {
@@ -11,4 +12,9 @@
 .nature-sound-volume {
   min-width: 168px;
   max-width: 100%;
+}
+
+.natureSound-button-style {
+  border: none;
+  background: transparent;
 }
