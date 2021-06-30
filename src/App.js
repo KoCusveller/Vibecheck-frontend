@@ -14,30 +14,30 @@ import { getUserWithStoredToken } from "./store/user/actions";
 
 import PostCity from "./pages/PostCity";
 import PlayCity from "./pages/PlayCity/PlayCity";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectAppLoading);
+	const dispatch = useDispatch();
+	const isLoading = useSelector(selectAppLoading);
 
-  useEffect(() => {
-    dispatch(getUserWithStoredToken());
-  }, [dispatch]);
+	useEffect(() => {
+		dispatch(getUserWithStoredToken());
+	}, [dispatch]);
 
-  return (
-    <div className="App">
-      <Navigation />
-      <MessageBox />
-      {isLoading ? <Loading /> : null}
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/PlayCity/:id" component={PlayCity} />
-        <Route path="/PostCity" component={PostCity} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/login" component={Login} />
-      </Switch>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Navigation />
+			<MessageBox />
+			{isLoading ? <Loading /> : null}
+			<Switch>
+				<Route exact path="/" component={HomePage} />
+				<Route path="/PlayCity/:id" component={PlayCity} />
+				<Route path="/PostCity" component={PostCity} />
+				<Route path="/signup" component={SignUp} />
+				<Route path="/login" component={Login} />
+			</Switch>
+		</div>
+	);
 }
 
 export default App;
