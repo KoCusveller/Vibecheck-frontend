@@ -94,7 +94,7 @@ function PlayCity() {
           }}
         />
 
-        <NatureSounds />
+        <NatureSounds master_playing={playing} />
       </div>
     </div>
   );

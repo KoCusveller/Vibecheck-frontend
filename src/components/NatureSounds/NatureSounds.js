@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useState } from "react";
 import ReactPlayer from "react-player";
@@ -24,7 +24,7 @@ const type = {
   NONE: { name: "NONE", url: "" },
 };
 
-export default function NatureSounds() {
+export default function NatureSounds({ master_playing }) {
   const [natureSound, setNatureSound] = useState(type.NONE);
   const [playing, setplaying] = useState(false);
   const [volume, setVolume] = useState(1);
@@ -39,6 +39,10 @@ export default function NatureSounds() {
     setNatureSound(type[sound.name]);
     setplaying(true);
   }
+
+  useEffect(() => {
+    setplaying(master_playing);
+  }, [master_playing]);
 
   return (
     <div>
