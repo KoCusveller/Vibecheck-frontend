@@ -1,0 +1,7 @@
+div * {
+	color: rgb(201, 194, 206);
+}
+
+.fullHeight {
+	min-height: 100vh;
+}
