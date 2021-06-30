@@ -33,6 +33,7 @@ export default function HomePage() {
 						display: "flex",
 						flexWrap: "wrap",
 						maxWidth: "1600px",
+						border: "0px",
 					}}
 				>
 					{cities.map((city) => (
@@ -45,7 +46,14 @@ export default function HomePage() {
 					))}
 				</div>
 			</Container>
-			<button onClick={() => dispatch(fetchMoreCities())}>More</button>
+
+			<button
+				onClick={() => dispatch(fetchMoreCities())}
+				style={{ marginLeft: "auto", marginRight: "auto" }}
+			>
+				More
+			</button>
+
 			<div>
 				{userToken ? (
 					<Link to="/PostCity">
