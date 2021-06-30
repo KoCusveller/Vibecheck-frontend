@@ -1,18 +1,22 @@
 // IMPORT REACT LIBRARIES AND COMPONENTS
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import CityMiniature from "../components/CityMiniature";
+import CityMiniature from "../../components/CityMiniature";
 
 // IMPORT REDUX
 import { useDispatch, useSelector } from "react-redux";
 
 // IMPORT ACTIONS AND SELECTORS
-import { fetchCities, fetchMoreCities } from "../store/cities/actions";
-import { selectToken } from "../store/user/selectors";
-import { selectCities } from "../store/cities/selectors";
+import { fetchCities, fetchMoreCities } from "../../store/cities/actions";
+import { selectToken } from "../../store/user/selectors";
+import { selectCities } from "../../store/cities/selectors";
 
 // IMPORT REACT BOOTSTRAP
 import { Button, Container, Row, Col } from "react-bootstrap";
+
+// IMPORT STYLESHEET
+
+import "./HomePage.css";
 
 export default function HomePage() {
 	const userToken = useSelector(selectToken);
@@ -28,14 +32,7 @@ export default function HomePage() {
 	return (
 		<div>
 			<Container fluid>
-				<div
-					style={{
-						display: "flex",
-						flexWrap: "wrap",
-						maxWidth: "1600px",
-						border: "0px",
-					}}
-				>
+				<div className="cityMiniature">
 					{cities.map((city) => (
 						<CityMiniature
 							key={city.id}
@@ -48,14 +45,8 @@ export default function HomePage() {
 			</Container>
 
 			<button
+				className="loadMoreButton"
 				onClick={() => dispatch(fetchMoreCities())}
-				style={{
-					display: "block",
-					marginLeft: "auto",
-					marginRight: "3vw",
-					border: "none",
-					backgroundColor: "white",
-				}}
 			>
 				MORE
 			</button>
@@ -63,33 +54,15 @@ export default function HomePage() {
 			<div>
 				{userToken ? (
 					<Link to="/PostCity">
-						<Button
-							variant="light"
-							style={{
-								display: "block",
-								marginLeft: "auto",
-								marginRight: "auto",
-								backgroundColor: "white",
-								border: "none",
-							}}
-						>
+						<button className="postCityButton">
 							<h2> Post a new City Vibe!</h2>
-						</Button>
+						</button>
 					</Link>
 				) : (
 					<Link to="/login">
-						<Button
-							variant="light"
-							style={{
-								display: "block",
-								marginLeft: "auto",
-								marginRight: "auto",
-								backgroundColor: "white",
-								border: "none",
-							}}
-						>
+						<button className="postCityButton">
 							<h2>Post a new City Vibe!</h2>
-						</Button>
+						</button>
 					</Link>
 				)}
 			</div>
