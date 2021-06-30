@@ -1,19 +1,28 @@
+// IMPORT REACT LIBRARIES
 import React from "react";
 import { Link } from "react-router-dom";
 
-// window frame style/size
+// IMPORT BOOTSTRAP
+import { Card, Image } from "react-bootstrap";
 
-// get name & url props, map it
+// IMPORT STYLING
+import "./Style/CityMiniature.css";
 
 export default function CityMiniature({ id, name, url }) {
-  return (
-    <div>
-      <button>
-        {name}
-        <Link to={`/PlayCity/${id}`}>
-          <img src={url} alt={name} style={{ maxWidth: "400px" }} />
-        </Link>
-      </button>
-    </div>
-  );
+	return (
+		<Card className="cardCity">
+			<button className="cardButton">
+				<h2 className="cardTitle">{name}</h2>
+
+				<Link to={`/PlayCity/${id}`}>
+					<Image
+						className="cardImage"
+						src={url}
+						alt={name}
+						variant="bottom"
+					/>
+				</Link>
+			</button>
+		</Card>
+	);
 }
