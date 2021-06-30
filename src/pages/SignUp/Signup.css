@@ -1,4 +1,9 @@
 .fullHeight Container {
-	min-height: 100vh;
-	overflow: hidden;
+  min-height: 20%;
+  overflow: hidden;
+}
+
+.loginLinkStyle:hover {
+  color: rgb(201, 194, 206);
+  text-decoration: none;
 }
