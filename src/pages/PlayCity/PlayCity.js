@@ -1,10 +1,25 @@
+/**IMPORT LIBRARIES */
 import React, { useEffect, useState } from "react";
 import Player from "react-player/youtube";
-import NatureSounds from "../components/NatureSounds";
-import "../App.css";
 import { useParams } from "react-router-dom";
-import { fetchCityDetail } from "../store/cityDetail/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+/**IMPORT STYLING */
+import "./PlayCity.css";
+
+/**IMPORT COMPONENTS */
+import NatureSounds from "../../components/NatureSounds/NatureSounds";
+
+/**IMPORT ACTIONS */
+import { fetchCityDetail } from "../../store/cityDetail/actions";
+
+/**IMPORT SELECTORS */
+import { selectCityDetail } from "../../store/cityDetail/selectors";
+
+/**IMPORT ICONS */
+
+import PLAY_IMG from "./img/PLAY.png";
+import PAUSE_IMG from "./img/PAUSE.png";
 
 // All that is left to do is change it into the fetched items from the redux store
 
@@ -15,6 +30,7 @@ function PlayCity() {
 
   const { id } = useParams();
   const dispatch = useDispatch();
+  const thisCity = useSelector(selectCityDetail);
 
   useEffect(() => {
     dispatch(fetchCityDetail(id));
@@ -25,7 +41,7 @@ function PlayCity() {
       <Player
         //video
         className="react-player"
-        url="https://www.youtube.com/watch?v=cbTV35mLI5A"
+        url={thisCity.vidUrl}
         muted={true}
         playing={playing ? true : false}
         config={{
@@ -43,11 +59,12 @@ function PlayCity() {
       />
       <Player
         //audio
-        url="https://www.youtube.com/watch?v=-5KAN9_CzSA"
+        url={thisCity.songUrl}
         playing={playing ? true : false}
         style={{ display: "none" }}
         volume={volume}
         muted={false}
+        loop={true}
         config={{
           youtube: {
             playerVars: { mute: mutedClick ? 1 : 0 },
@@ -55,24 +72,30 @@ function PlayCity() {
         }}
       />
 
-      <button
-        onClick={(e) => {
-          setPlaying(!playing);
-          setMutedClick(!mutedClick);
-        }}
-      >
-        {playing ? "Pause" : "Play"}
-      </button>
-      <input
-        type="range"
-        min={0}
-        max={10}
-        onChange={(e) => {
-          setVolume(parseFloat(e.target.value / 10));
-        }}
-      />
+      <div className="audio-controls">
+        <button
+          onClick={(e) => {
+            setPlaying(!playing);
+            setMutedClick(!mutedClick);
+          }}
+        >
+          {playing ? (
+            <img className="playCity-icon" src={PAUSE_IMG}></img>
+          ) : (
+            <img className="playCity-icon" src={PLAY_IMG}></img>
+          )}
+        </button>
+        <input
+          type="range"
+          min={0}
+          max={10}
+          onChange={(e) => {
+            setVolume(parseFloat(e.target.value / 10));
+          }}
+        />
 
-      <NatureSounds />
+        <NatureSounds />
+      </div>
     </div>
   );
 }

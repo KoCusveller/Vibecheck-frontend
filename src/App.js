@@ -13,7 +13,7 @@ import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 
 import PostCity from "./pages/PostCity";
-import PlayCity from "./pages/PlayCity";
+import PlayCity from "./pages/PlayCity/PlayCity";
 import HomePage from "./pages/HomePage";
 
 function App() {
