@@ -30,8 +30,8 @@ export default function HomePage() {
   }, [dispatch]);
 
   return (
-    <div>
-      <Container fluid>
+    <>
+      <Container fluid className="city-container">
         <div className="cityMiniature">
           {cities.map((city) => (
             <CityMiniature
@@ -66,6 +66,6 @@ export default function HomePage() {
           </Link>
         )}
       </div>
-    </div>
+    </>
   );
 }
