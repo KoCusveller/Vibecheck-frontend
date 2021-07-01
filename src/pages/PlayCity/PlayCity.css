@@ -1,7 +1,6 @@
 .player-wrapper {
   display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
   margin-top: 3px;
 }
 
@@ -13,7 +12,6 @@
 .audio-controls {
   max-height: 100px;
   margin-top: 5px;
-  margin-bottom: 10vh;
   margin-left: 5%;
 }
 
