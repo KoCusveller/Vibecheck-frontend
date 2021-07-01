@@ -53,7 +53,7 @@ export default function HomePage() {
 				<img src={DownChevron} className="loadMoreImage" />
 			</button>
 
-			<div>
+			<div className="postCityDiv">
 				{userToken ? (
 					<Link to="/PostCity">
 						<button className="postCityButton">
