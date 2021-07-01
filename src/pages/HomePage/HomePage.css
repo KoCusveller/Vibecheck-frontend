@@ -10,13 +10,35 @@
 	margin-left: auto;
 	margin-right: 3vw;
 	border: none;
-	background-color: white;
+	background-color: rgb(52, 47, 58);
+}
+
+.loadMoreButton:hover,
+.loadMoreButton:active {
+	text-decoration-color: white;
+	color: white;
 }
 
 .postCityButton {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: white;
+	background-color: rgb(52, 47, 58);
+	color: rgb(201, 194, 206);
 	border: none;
+}
+
+.postCityButtonLink {
+	transition: transform 0.75s;
+}
+
+.postCityButtonLink:hover,
+.postCityButtonLink:active {
+	text-decoration-color: white;
+	color: white;
+	transform: scale(1.1);
+}
+
+.loadMoreImage {
+	width: 20%;
 }
