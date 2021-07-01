@@ -53,21 +53,25 @@ export default function HomePage() {
         <img src={DownChevron} className="loadMoreImage" alt="loadmoreicon" />
       </button>
 
-      <div>
-        {userToken ? (
-          <Link to="/PostCity">
-            <button className="postCityButton">
-              <h2 className="postCityButtonLink"> Post a new City Vibe</h2>
-            </button>
-          </Link>
-        ) : (
-          <Link to="/login">
-            <button className="postCityButton">
-              <h2 className="postCityButtonLink">Post a new City Vibe</h2>
-            </button>
-          </Link>
-        )}
-      </div>
-    </div>
-  );
+			<div className="postCityDiv">
+				{userToken ? (
+					<Link to="/PostCity">
+						<button className="postCityButton">
+							<h2 className="postCityButtonLink">
+								Post a new City Vibe
+							</h2>
+						</button>
+					</Link>
+				) : (
+					<Link to="/login">
+						<button className="postCityButton">
+							<h2 className="postCityButtonLink">
+								Post a new City Vibe
+							</h2>
+						</button>
+					</Link>
+				)}
+			</div>
+		</div>
+	);
 }
