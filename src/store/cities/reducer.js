@@ -15,7 +15,12 @@ export default function cityReducer(state = initialState, action) {
       return [...state, ...action.payload];
 
     case CREATE_CITY_SUCCES:
-      return [action.payload, ...state];
+      const newCityList = [action.payload, ...state];
+      if (newCityList.length === 10) {
+        newCityList.pop();
+        return newCityList;
+      }
+      return newCityList;
 
     default:
       return state;
