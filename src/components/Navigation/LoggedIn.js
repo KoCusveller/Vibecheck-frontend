@@ -12,8 +12,15 @@ export default function LoggedIn() {
   return (
     <>
       <NavbarItem path="/PostCity" linkText="Post City Vibe" />
-      <Nav.Item style={{ padding: ".5rem 1rem" }}>{user.name}</Nav.Item>
-      <Button onClick={() => dispatch(logOut())}>Logout</Button>
+      <Nav.Item style={{ padding: ".5rem 1rem", fontWeight: "bold" }}>
+        {user.name}
+      </Nav.Item>
+      <Button
+        onClick={() => dispatch(logOut())}
+        style={{ color: "rgb(201, 194, 206)", fontWeight: "bold" }}
+      >
+        Logout
+      </Button>
     </>
   );
 }
