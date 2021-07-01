@@ -31,22 +31,20 @@ export default function HomePage() {
 		}
 	}, [dispatch]);
 
-
-  return (
-    <>
-      <Container fluid className="city-container">
-        <div className="cityMiniature">
-          {cities.map((city) => (
-            <CityMiniature
-              key={city.id}
-              id={city.id}
-              name={city.name}
-              url={city.imgUrl}
-            />
-          ))}
-        </div>
-      </Container>
-
+	return (
+		<div>
+			<Container fluid className="city-container">
+				<div className="cityMiniature">
+					{cities.map((city) => (
+						<CityMiniature
+							key={city.id}
+							id={city.id}
+							name={city.name}
+							url={city.imgUrl}
+						/>
+					))}
+				</div>
+			</Container>
 
 			<button
 				className="loadMoreButton"
@@ -54,7 +52,6 @@ export default function HomePage() {
 			>
 				<img src={DownChevron} className="loadMoreImage" />
 			</button>
-
 
 			<div>
 				{userToken ? (
@@ -78,5 +75,4 @@ export default function HomePage() {
 			</div>
 		</div>
 	);
-
 }
