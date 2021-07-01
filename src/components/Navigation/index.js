@@ -19,6 +19,8 @@ export default function Navigation() {
         as={NavLink}
         to="/"
         style={{ color: "rgb(201, 194, 206)", fontWeight: "bold" }}
+        activeStyle={{ color: "white" }}
+        exact
       >
         VibeCheck
       </Navbar.Brand>

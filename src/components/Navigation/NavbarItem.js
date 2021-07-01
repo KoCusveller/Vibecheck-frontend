@@ -9,6 +9,7 @@ export default function NavbarItem(props) {
         as={NavLink}
         to={props.path}
         style={{ color: "rgb(201, 194, 206)", fontWeight: "bold" }}
+        activeStyle={{ color: "white" }}
       >
         {props.linkText}
       </Nav.Link>
