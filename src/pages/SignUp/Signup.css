@@ -3,7 +3,15 @@
   overflow: hidden;
 }
 
-.loginLinkStyle:hover {
+.emailText {
   color: rgb(201, 194, 206);
+}
+
+.loginLinkStyle {
+  color: rgb(201, 194, 206);
+}
+
+.loginLinkStyle:hover {
+  color: white;
   text-decoration: none;
 }
