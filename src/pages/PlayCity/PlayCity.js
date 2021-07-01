@@ -34,7 +34,7 @@ function PlayCity() {
 
   useEffect(() => {
     dispatch(fetchCityDetail(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <div className="player-wrapper">
@@ -78,9 +78,9 @@ function PlayCity() {
           }}
         >
           {playing ? (
-            <img className="playCity-icon" src={PAUSE_IMG}></img>
+            <img className="playCity-icon" src={PAUSE_IMG} alt="playicon"></img>
           ) : (
-            <img className="playCity-icon" src={PLAY_IMG}></img>
+            <img className="playCity-icon" src={PLAY_IMG} alt="playicon"></img>
           )}
         </button>
         <input
