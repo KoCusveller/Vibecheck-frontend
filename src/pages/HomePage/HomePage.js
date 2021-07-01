@@ -18,16 +18,19 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 
 import "./HomePage.css";
 
-export default function HomePage() {
-  const userToken = useSelector(selectToken);
-  const cities = useSelector(selectCities);
-  const dispatch = useDispatch();
+import DownChevron from "./DownChevron-Sm.png";
 
-  useEffect(() => {
-    if (!cities.length) {
-      dispatch(fetchCities());
-    }
-  }, [dispatch]);
+export default function HomePage() {
+	const userToken = useSelector(selectToken);
+	const cities = useSelector(selectCities);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (!cities.length) {
+			dispatch(fetchCities());
+		}
+	}, [dispatch]);
+
 
   return (
     <>
@@ -44,28 +47,36 @@ export default function HomePage() {
         </div>
       </Container>
 
-      <button
-        className="loadMoreButton"
-        onClick={() => dispatch(fetchMoreCities())}
-      >
-        MORE
-      </button>
 
-      <div>
-        {userToken ? (
-          <Link to="/PostCity">
-            <button className="postCityButton">
-              <h2> Post a new City Vibe!</h2>
-            </button>
-          </Link>
-        ) : (
-          <Link to="/login">
-            <button className="postCityButton">
-              <h2>Post a new City Vibe!</h2>
-            </button>
-          </Link>
-        )}
-      </div>
-    </>
-  );
+			<button
+				className="loadMoreButton"
+				onClick={() => dispatch(fetchMoreCities())}
+			>
+				<img src={DownChevron} className="loadMoreImage" />
+			</button>
+
+
+			<div>
+				{userToken ? (
+					<Link to="/PostCity">
+						<button className="postCityButton">
+							<h2 className="postCityButtonLink">
+								{" "}
+								Post a new City Vibe
+							</h2>
+						</button>
+					</Link>
+				) : (
+					<Link to="/login">
+						<button className="postCityButton">
+							<h2 className="postCityButtonLink">
+								Post a new City Vibe
+							</h2>
+						</button>
+					</Link>
+				)}
+			</div>
+		</div>
+	);
+
 }
