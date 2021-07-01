@@ -4,4 +4,7 @@ div * {
 
 .fullHeight {
 	min-height: 100vh;
+	background-image: url("../SharedImg/VibeCheckBG.png");
+	background-repeat: no-repeat;
+	background-position: 50% 450px;
 }

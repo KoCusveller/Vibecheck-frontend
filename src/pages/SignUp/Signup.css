@@ -1,17 +1,23 @@
-.fullHeight Container {
-  min-height: 20%;
-  overflow: hidden;
+.fullHeight {
+	min-height: 20%;
+	overflow: hidden;
 }
 
 .emailText {
-  color: rgb(201, 194, 206);
+	color: rgb(201, 194, 206);
 }
 
 .loginLinkStyle {
-  color: rgb(201, 194, 206);
+	color: rgb(201, 194, 206);
 }
 
 .loginLinkStyle:hover {
-  color: white;
-  text-decoration: none;
+	color: white;
+	text-decoration: none;
+}
+
+.bgImage {
+	background-image: url("../SharedImg/VibeCheckBG.png");
+	background-repeat: no-repeat;
+	background-position: 50% 450px;
 }
