@@ -21,37 +21,41 @@ import "./HomePage.css";
 import DownChevron from "./DownChevron-Sm.png";
 
 export default function HomePage() {
-  const userToken = useSelector(selectToken);
-  const cities = useSelector(selectCities);
-  const dispatch = useDispatch();
+	const userToken = useSelector(selectToken);
+	const cities = useSelector(selectCities);
+	const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!cities.length) {
-      dispatch(fetchCities());
-    }
-  }, [dispatch, cities.length]);
+	useEffect(() => {
+		if (!cities.length) {
+			dispatch(fetchCities());
+		}
+	}, [dispatch, cities.length]);
 
-  return (
-    <div>
-      <Container fluid className="city-container">
-        <div className="cityMiniature">
-          {cities.map((city) => (
-            <CityMiniature
-              key={city.id}
-              id={city.id}
-              name={city.name}
-              url={city.imgUrl}
-            />
-          ))}
-        </div>
-      </Container>
+	return (
+		<div className="linearGradient">
+			<Container fluid className="city-container">
+				<div className="cityMiniature">
+					{cities.map((city) => (
+						<CityMiniature
+							key={city.id}
+							id={city.id}
+							name={city.name}
+							url={city.imgUrl}
+						/>
+					))}
+				</div>
+			</Container>
 
-      <button
-        className="loadMoreButton"
-        onClick={() => dispatch(fetchMoreCities())}
-      >
-        <img src={DownChevron} className="loadMoreImage" alt="loadmoreicon" />
-      </button>
+			<button
+				className="loadMoreButton"
+				onClick={() => dispatch(fetchMoreCities())}
+			>
+				<img
+					src={DownChevron}
+					className="loadMoreImage"
+					alt="loadmoreicon"
+				/>
+			</button>
 
 			<div className="postCityDiv">
 				{userToken ? (
