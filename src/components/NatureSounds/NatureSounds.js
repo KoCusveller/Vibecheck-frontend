@@ -59,28 +59,44 @@ export default function NatureSounds({ master_playing }) {
           className="natureSound-button-style"
           onClick={() => handleSound(type.JUNGLE)}
         >
-          <img className="nature-sound-icon" src={JUNGLE_IMG}></img>
+          <img
+            className="nature-sound-icon"
+            src={JUNGLE_IMG}
+            alt="nature-icon"
+          ></img>
         </button>
 
         <button
           className="natureSound-button-style"
           onClick={() => handleSound(type.OCEAN)}
         >
-          <img className="nature-sound-icon" src={OCEAN_IMG}></img>
+          <img
+            className="nature-sound-icon"
+            src={OCEAN_IMG}
+            alt="nature-icon"
+          ></img>
         </button>
 
         <button
           className="natureSound-button-style"
           onClick={() => handleSound(type.RAIN)}
         >
-          <img className="nature-sound-icon" src={RAIN_IMG}></img>
+          <img
+            className="nature-sound-icon"
+            src={RAIN_IMG}
+            alt="nature-icon"
+          ></img>
         </button>
 
         <button
           className="natureSound-button-style"
           onClick={() => handleSound(type.STORM)}
         >
-          <img className="nature-sound-icon" src={STORM_IMG}></img>
+          <img
+            className="nature-sound-icon"
+            src={STORM_IMG}
+            alt="nature-icon"
+          ></img>
         </button>
       </div>
       <input

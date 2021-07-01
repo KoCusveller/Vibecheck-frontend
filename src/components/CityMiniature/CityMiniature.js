@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // IMPORT BOOTSTRAP
-import { Card, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 
 // IMPORT STYLING
 import "./CityMiniature.css";
