@@ -1,38 +1,42 @@
 .cardCity {
-  width: 500px;
-  height: 350px;
-  padding: 0px;
-  margin: 10px;
-  background-color: transparent;
-  border: none;
+	width: 500px;
+	height: 370px;
+	padding: 0px;
+	margin: 10px;
+	background-color: transparent;
+	border: none;
 }
 .cardButton {
-  background-color: rgb(91, 86, 100);
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  margin: 0 auto 0 auto;
-  border: none;
-  border-right: 2px solid rgb(58, 58, 58);
-  border-bottom: 2px solid black;
-  border-radius: 2%;
+	background-color: rgb(91, 86, 100);
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0 auto 0 auto;
+	border: none;
+	border-right: 2px solid rgb(58, 58, 58);
+	border-bottom: 2px solid black;
+	border-radius: 2%;
 }
 
 .cardButton:focus {
-  outline: none;
+	outline: none;
 }
 
 .cardTitle {
-  font-weight: 400;
-  color: rgb(201, 194, 206);
-  background-color: transparent;
+	font-weight: 400;
+	font-size: 62px;
+	color: rgb(201, 194, 206);
+	background-color: transparent;
+	font-family: "Fuggles";
+	padding: 0px;
+	margin: -20px 0 0 0;
 }
 
 .cardImage {
-  width: 450px;
-  height: 270px;
-  border-bottom: 2px solid black;
-  border-right: 2px solid rgb(58, 58, 58);
-  border-radius: 2%;
-  object-fit: cover;
+	width: 450px;
+	height: 270px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid rgb(58, 58, 58);
+	border-radius: 2%;
+	object-fit: cover;
 }
