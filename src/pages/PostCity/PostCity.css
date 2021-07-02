@@ -1,10 +1,10 @@
 div * {
-	color: rgb(201, 194, 206);
+  color: rgb(201, 194, 206);
 }
 
 .fullHeight {
-	min-height: 100vh;
-	background-image: url("../SharedImg/VibeCheckBG.png");
-	background-repeat: no-repeat;
-	background-position: 50% 450px;
+  min-height: 80vh;
+  background-image: url("../SharedImg/VibeCheckBG.png");
+  background-repeat: no-repeat;
+  background-position: 50% 450px;
 }
